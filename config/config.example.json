@@ -1,11 +1,20 @@
 {
-  "$comentario": "Copie para config.local.json (na raiz do projeto) e ajuste. Esse arquivo nunca vai para o git.",
+  "$comentario": "Copie para config.local.json (na raiz do projeto) e ajuste. Tudo é opcional; esse arquivo nunca vai para o git.",
   "zonasPrivadas": [
-    { "nome": "casa", "lat": 0, "lon": 0, "raioM": 500 }
+    { "nome": "exemplo (ignorado enquanto lat/lon forem 0)", "lat": 0, "lon": 0, "raioM": 500 }
   ],
+  "zonasAutomaticas": {
+    "ativo": true,
+    "minAtividades": 5,
+    "raioAgrupamentoM": 200,
+    "raioCorteM": 400
+  },
   "deduplicacao": {
     "toleranciaInicioS": 120,
     "sobreposicaoMinima": 0.6
   },
-  "equipamentos": []
+  "fusoPadrao": "America/Sao_Paulo",
+  "equipamentos": [
+    { "nome": "Bike de exemplo", "esporte": "pedal", "de": "2018-01-01", "ate": "2021-12-31" }
+  ]
 }
