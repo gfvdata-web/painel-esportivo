@@ -39,6 +39,11 @@ export const TIPOS_SAMSUNG: Record<string, { esporte: Esporte; rotulo: string }>
   '13001': { esporte: 'trilha', rotulo: 'Trilha' },
   '14001': { esporte: 'natacao_piscina', rotulo: 'Natação (piscina)' },
   '9014001': { esporte: 'natacao_piscina', rotulo: 'Natação' },
+  // Treinos de academia, identificados pelo perfil das sessões (sem GPS, duração e FC típicas).
+  '15002': { esporte: 'musculacao', rotulo: 'Musculação' },
+  '15003': { esporte: 'musculacao', rotulo: 'Aparelho de cardio' },
+  '15005': { esporte: 'musculacao', rotulo: 'Esteira' },
+  '10007': { esporte: 'musculacao', rotulo: 'Treino funcional' },
 };
 
 const ESTILOS: Record<string, EstiloNado> = {

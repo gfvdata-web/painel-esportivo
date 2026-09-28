@@ -17,7 +17,7 @@ export const ESPORTES: Record<Esporte, InfoEsporte> = {
   natacao_aguas_abertas: { rotulo: 'Natação (águas abertas)', curto: 'Águas abertas', genero: 'f', substantivo: 'Natação em águas abertas' },
   caminhada: { rotulo: 'Caminhada', curto: 'Caminhada', genero: 'f', substantivo: 'Caminhada' },
   trilha: { rotulo: 'Trilha', curto: 'Trilha', genero: 'f', substantivo: 'Trilha' },
-  musculacao: { rotulo: 'Musculação', curto: 'Musculação', genero: 'm', substantivo: 'Treino de musculação' },
+  musculacao: { rotulo: 'Academia', curto: 'Academia', genero: 'm', substantivo: 'Treino de academia' },
   outro: { rotulo: 'Outros', curto: 'Outros', genero: 'm', substantivo: 'Treino' },
 };
 

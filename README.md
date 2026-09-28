@@ -82,5 +82,5 @@ test/                  testes; test/fixtures tem amostras anonimizadas (coordena
 
 ## Pendências conhecidas
 
-- Códigos de exercício do Samsung ainda sem nome (15002, 15003, 15005, 10007, 4004, 5001) aparecem como "Outros". Para mapear, edite `TIPOS_SAMSUNG` em `src/ingest/adapters/samsungHealthExport.ts`.
+- Os códigos 15002, 15003, 15005 e 10007 do Samsung foram classificados como **Academia** pelo perfil das sessões. Os códigos 4004 e 5001 (uma sessão cada) seguem em "Outros". Para mapear, edite `TIPOS_SAMSUNG` em `src/ingest/adapters/samsungHealthExport.ts`.
 - Os tiles do mapa vêm do servidor público do OpenStreetMap, adequado para uso pessoal de baixo volume.

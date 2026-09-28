@@ -44,7 +44,7 @@ function marcasDoEsporte(e: Esporte, lista: Atividade[]): Marca[] {
     add('Melhor ritmo', maiorPor(lista, (a) => a.natacao?.ritmo100mS && -a.natacao.ritmo100mS), (a) => ritmo100(a.natacao!.ritmo100mS));
     add('Menor SWOLF', maiorPor(lista, (a) => a.natacao?.swolfMedio && -a.natacao.swolfMedio), (a) => decimal(a.natacao!.swolfMedio!));
     add('Mais voltas', maiorPor(lista, (a) => a.natacao?.voltas), (a) => inteiro(a.natacao!.voltas!));
-  } else {
+  } else if (e !== 'musculacao') {
     add('Maior distância', maiorPor(lista, (a) => a.distanciaM), (a) => `${km(a.distanciaM)} km`);
     add('Mais elevação', maiorPor(lista, (a) => a.ganhoElevM), (a) => `${inteiro(a.ganhoElevM!)} m`);
     if (e === 'pedal') {

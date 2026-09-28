@@ -91,9 +91,9 @@ describe('samsungHealthExport (fixture)', async () => {
     expect(w.autoDetectada).toBe(true);
   });
 
-  it('código desconhecido vira "outro" com aviso', () => {
+  it('treino de academia (15002) vira musculação, sem aviso', () => {
     const x = porTipo('15002');
-    expect(x.esporte).toBe('outro');
-    expect(x.anomalias).toContain('código de exercício 15002 ainda sem mapeamento');
+    expect(x.esporte).toBe('musculacao');
+    expect(x.anomalias).toEqual([]);
   });
 });
