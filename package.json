@@ -20,8 +20,11 @@
     "preact": "^10.29.8"
   },
   "devDependencies": {
+    "@garmin/fitsdk": "^21.217.0",
     "@preact/preset-vite": "^2.10.6",
     "@types/node": "^26.6.3",
+    "csv-parse": "^7.0.3",
+    "fast-xml-parser": "^5.11.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.1",
