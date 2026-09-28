@@ -4,6 +4,7 @@ import { gunzipSync } from 'node:zlib';
 import { XMLParser } from 'fast-xml-parser';
 import { Decoder, Stream } from '@garmin/fitsdk';
 import type { Amostra, PontoGps } from '../types';
+import { coordenadaValida } from './util';
 
 export interface ConteudoTrilha {
   pontos: PontoGps[];
@@ -65,10 +66,10 @@ export function lerGpx(xml: string): ConteudoTrilha {
       for (const p of seg.trkpt ?? []) {
         const lat = num(p.lat);
         const lon = num(p.lon);
-        if (lat === undefined || lon === undefined) continue;
+        if (!coordenadaValida(lat, lon)) continue;
         const t = tempo(p.time);
         const ele = num(p.ele);
-        pontos.push({ lat, lon, ...(ele !== undefined && { ele }), ...(t !== undefined && { t }) });
+        pontos.push({ lat, lon: lon!, ...(ele !== undefined && { ele }), ...(t !== undefined && { t }) });
         const ext = p.extensions ?? {};
         const tpe = ext.TrackPointExtension ?? {};
         const a = amostraSe(t, {
@@ -95,8 +96,8 @@ export function lerTcx(xml: string): ConteudoTrilha {
           const ele = num(tp.AltitudeMeters);
           const lat = num(tp.Position?.LatitudeDegrees);
           const lon = num(tp.Position?.LongitudeDegrees);
-          if (lat !== undefined && lon !== undefined) {
-            pontos.push({ lat, lon, ...(ele !== undefined && { ele }), ...(t !== undefined && { t }) });
+          if (coordenadaValida(lat, lon)) {
+            pontos.push({ lat, lon: lon!, ...(ele !== undefined && { ele }), ...(t !== undefined && { t }) });
           }
           const tpx = tp.Extensions?.TPX ?? {};
           const a = amostraSe(t, {
@@ -127,10 +128,12 @@ export function lerFit(buf: Buffer): ConteudoTrilha {
   for (const r of messages.recordMesgs ?? []) {
     const t = r.timestamp instanceof Date ? r.timestamp.getTime() : undefined;
     const ele = num(r.enhancedAltitude ?? r.altitude);
-    if (typeof r.positionLat === 'number' && typeof r.positionLong === 'number') {
+    const lat = typeof r.positionLat === 'number' ? r.positionLat * SEMICIRCULO_PARA_GRAU : undefined;
+    const lon = typeof r.positionLong === 'number' ? r.positionLong * SEMICIRCULO_PARA_GRAU : undefined;
+    if (coordenadaValida(lat, lon)) {
       pontos.push({
-        lat: r.positionLat * SEMICIRCULO_PARA_GRAU,
-        lon: r.positionLong * SEMICIRCULO_PARA_GRAU,
+        lat,
+        lon: lon!,
         ...(ele !== undefined && { ele }),
         ...(t !== undefined && { t }),
       });

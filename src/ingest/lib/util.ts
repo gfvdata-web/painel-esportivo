@@ -32,3 +32,23 @@ export function listarArquivos(dir: string): string[] {
   }
   return saida;
 }
+
+/** Latitude/longitude dentro do intervalo e diferentes do "null island" (0, 0). */
+export function coordenadaValida(lat: unknown, lon: unknown): lat is number {
+  return (
+    typeof lat === 'number' &&
+    typeof lon === 'number' &&
+    Math.abs(lat) <= 90 &&
+    Math.abs(lon) <= 180 &&
+    !(lat === 0 && lon === 0)
+  );
+}
+
+/** Avisos para tempos absurdos, típicos de gravação esquecida ligada. */
+export function anomaliasDeTempo(totalS: number, movimentoS: number | undefined): string[] {
+  if (totalS > 24 * 3600) return ['tempo decorrido acima de 24 h'];
+  if (movimentoS && totalS > 4 * movimentoS && totalS > 3 * 3600) {
+    return ['tempo decorrido muito maior que o tempo em movimento'];
+  }
+  return [];
+}

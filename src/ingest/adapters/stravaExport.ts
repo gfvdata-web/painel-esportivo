@@ -9,7 +9,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { parse } from 'csv-parse/sync';
 import { formatoDoArquivo, lerArquivoTrilha } from '../lib/arquivosTrilha';
-import { listarArquivos, numero, semVazios } from '../lib/util';
+import { anomaliasDeTempo, listarArquivos, numero, semVazios } from '../lib/util';
 import type { Adaptador, ArquivoIgnorado, AtividadeFonte, Esporte, ResultadoAdaptador } from '../types';
 
 /** Nomes possíveis de cada coluna (pt-BR e inglês). */
@@ -146,10 +146,7 @@ export function lerActivitiesCsv(
 
     const duracaoTotalS = numero(valor(linha, 'tempoDecorrido')) ?? 0;
     const duracaoMovimentoS = numero(valor(linha, 'tempoMovimento'), { zeroEhVazio: true });
-    if (duracaoTotalS > 24 * 3600) anomalias.push('tempo decorrido acima de 24 h');
-    else if (duracaoMovimentoS && duracaoTotalS > 4 * duracaoMovimentoS && duracaoTotalS > 3 * 3600) {
-      anomalias.push('tempo decorrido muito maior que o tempo em movimento');
-    }
+    anomalias.push(...anomaliasDeTempo(duracaoTotalS, duracaoMovimentoS));
 
     const piscina = numero(valor(linha, 'piscina'), { zeroEhVazio: true });
     const esporte = esporteStrava(tipo, !!trilha);

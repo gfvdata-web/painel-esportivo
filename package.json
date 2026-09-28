@@ -21,8 +21,10 @@
   },
   "devDependencies": {
     "@garmin/fitsdk": "^21.217.0",
+    "@photostructure/tz-lookup": "^11.7.0",
     "@preact/preset-vite": "^2.10.6",
     "@types/node": "^26.6.3",
+    "all-the-cities": "^3.1.0",
     "csv-parse": "^7.0.3",
     "fast-xml-parser": "^5.11.1",
     "tsx": "^4.23.15",

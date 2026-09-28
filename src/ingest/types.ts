@@ -2,17 +2,9 @@
 // A normalização final (dedup, simplificação de trilha, geocodificação) acontece depois,
 // sobre listas de AtividadeFonte — nunca olhando para o formato original.
 
-export type Fonte = 'strava' | 'samsung';
+import type { Esporte, EstiloNado, Fonte } from '../shared/modelo';
 
-export type Esporte =
-  | 'corrida'
-  | 'pedal'
-  | 'natacao_piscina'
-  | 'natacao_aguas_abertas'
-  | 'caminhada'
-  | 'trilha'
-  | 'musculacao'
-  | 'outro';
+export type { Esporte, EstiloNado, Fonte };
 
 /** Ponto de GPS em resolução original. `t` em epoch ms (UTC). */
 export interface PontoGps {
@@ -32,8 +24,6 @@ export interface Amostra {
   distanciaM?: number;
   potencia?: number;
 }
-
-export type EstiloNado = 'livre' | 'peito' | 'costas' | 'borboleta' | 'pernada' | 'misto' | 'desconhecido';
 
 export interface VoltaNatacao {
   duracaoS: number;

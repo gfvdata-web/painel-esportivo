@@ -11,7 +11,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import { parse } from 'csv-parse/sync';
-import { listarArquivos, numero, semVazios } from '../lib/util';
+import { anomaliasDeTempo, coordenadaValida, listarArquivos, numero, semVazios } from '../lib/util';
 import type {
   Adaptador,
   Amostra,
@@ -129,7 +129,8 @@ export function serieDoLiveData(itens: Record<string, number>[]): Amostra[] {
 
 export function trilhaDoLocationData(itens: Record<string, number>[]): PontoGps[] {
   return itens
-    .filter((p) => typeof p.latitude === 'number' && typeof p.longitude === 'number')
+    // O relógio grava (200, 200) como marcador (pausas); só passam coordenadas válidas.
+    .filter((p) => coordenadaValida(p.latitude, p.longitude))
     .map((p) =>
       semVazios<PontoGps>({ lat: p.latitude!, lon: p.longitude!, ele: p.altitude, t: p.start_time }),
     )
@@ -208,6 +209,7 @@ export function lerExportSamsung(dirExport: string): { atividades: AtividadeFont
 
     const duracaoMovimentoS = (numero(r.duration) ?? 0) / 1000;
     const duracaoTotalS = fim !== undefined && fim > inicio ? (fim - inicio) / 1000 : duracaoMovimentoS;
+    anomalias.push(...anomaliasDeTempo(duracaoTotalS, duracaoMovimentoS));
 
     atividades.push(
       semVazios<AtividadeFonte>({
