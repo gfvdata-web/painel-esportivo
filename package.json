@@ -17,6 +17,7 @@
     "node": ">=20"
   },
   "dependencies": {
+    "maplibre-gl": "^6.11.2",
     "preact": "^10.29.8"
   },
   "devDependencies": {

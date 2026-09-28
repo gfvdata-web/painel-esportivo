@@ -9,5 +9,9 @@ export default defineConfig(({ mode }) => {
     plugins: [preact(), pluginDados({ senha: env.PAINEL_SENHA, raiz: process.cwd() })],
     // Caminhos relativos para funcionar em qualquer subpasta do GitHub Pages.
     base: './',
+    worker: { format: 'es' },
+    // O MapLibre 6 acha o worker por caminho relativo ao próprio arquivo; fora do pré-empacotamento
+    // isso funciona no dev, e no build usamos setWorkerUrl com o worker empacotado pelo Vite.
+    optimizeDeps: { exclude: ['maplibre-gl'] },
   };
 });

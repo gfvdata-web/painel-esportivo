@@ -90,7 +90,8 @@ export function construirSerie(a: AtividadeFonte, maxPontos = 600): Serie | unde
   const tFim = Math.max(trilha.at(-1)?.t ?? t0, sensores.at(-1)?.t ?? t0);
   const dur = (tFim - t0) / 1000;
   if (dur <= 0) return undefined;
-  const n = Math.max(2, Math.min(maxPontos, Math.ceil(dur / 5)));
+  // Baldes de pelo menos 10 s: o relógio amostra a FC a cada ~10 s.
+  const n = Math.max(2, Math.min(maxPontos, Math.ceil(dur / 10)));
   const largura = dur / n;
 
   type Balde = { fc: number[]; vel: number[]; ele: number[]; dist?: number };
