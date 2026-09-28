@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "publicar": "npm run build && gh-pages -d dist --nojekyll --no-history -m \"Publicação do painel (dados cifrados)\""
+    "publicar": "npm run build && node scripts/publicar.mjs"
   },
   "engines": {
     "node": ">=20"
@@ -29,7 +29,6 @@
     "all-the-cities": "^3.1.0",
     "csv-parse": "^7.0.3",
     "fast-xml-parser": "^5.11.1",
-    "gh-pages": "^6.3.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.1",
