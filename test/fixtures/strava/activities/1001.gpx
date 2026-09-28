@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="StravaGPX" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+  <time>2026-08-05T20:45:59Z</time>
+ </metadata>
+ <trk>
+  <name>Pedal de teste</name>
+  <type>cycling</type>
+  <trkseg>
+   <trkpt lat="10.0" lon="20.0">
+    <ele>599.2</ele>
+    <time>2026-08-05T20:45:59Z</time>
+   </trkpt>
+   <trkpt lat="10.000005" lon="19.999998">
+    <ele>599.2</ele>
+    <time>2026-08-05T20:46:00Z</time>
+   </trkpt>
+   <trkpt lat="10.000007" lon="19.999996">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:01Z</time>
+   </trkpt>
+   <trkpt lat="10.000005" lon="19.999996">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:02Z</time>
+   </trkpt>
+   <trkpt lat="10.000001" lon="19.999997">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:03Z</time>
+   </trkpt>
+   <trkpt lat="10.0" lon="19.999997">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:04Z</time>
+   </trkpt>
+   <trkpt lat="9.999988" lon="20.000001">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:05Z</time>
+   </trkpt>
+   <trkpt lat="9.999987" lon="20.000002">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:06Z</time>
+   </trkpt>
+   <trkpt lat="9.999988" lon="20.000002">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:07Z</time>
+   </trkpt>
+   <trkpt lat="9.99999" lon="20.0">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:08Z</time>
+   </trkpt>
+   <trkpt lat="9.999993" lon="19.999998">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:09Z</time>
+   </trkpt>
+   <trkpt lat="9.999994" lon="19.999996">
+    <ele>599.3</ele>
+    <time>2026-08-05T20:46:10Z</time>
+   </trkpt>
+   <trkpt lat="10.000087" lon="19.999966">
+    <ele>599.7</ele>
+    <time>2026-08-05T20:46:19Z</time>
+   </trkpt>
+   <trkpt lat="10.00009" lon="19.999965">
+    <ele>599.7</ele>
+    <time>2026-08-05T20:46:20Z</time>
+   </trkpt>
+   <trkpt lat="10.000092" lon="19.999964">
+    <ele>599.7</ele>
+    <time>2026-08-05T20:46:21Z</time>
+   </trkpt>
+  </trkseg>
+ </trk>
+</gpx>
