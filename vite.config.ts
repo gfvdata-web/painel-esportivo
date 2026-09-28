@@ -10,6 +10,8 @@ export default defineConfig(({ mode }) => {
     // Caminhos relativos para funcionar em qualquer subpasta do GitHub Pages.
     base: './',
     worker: { format: 'es' },
+    // O MapLibre (~1 MB) fica num pedaço próprio, carregado só nas telas com mapa.
+    build: { chunkSizeWarningLimit: 1100 },
     // O MapLibre 6 acha o worker por caminho relativo ao próprio arquivo; fora do pré-empacotamento
     // isso funciona no dev, e no build usamos setWorkerUrl com o worker empacotado pelo Vite.
     optimizeDeps: { exclude: ['maplibre-gl'] },

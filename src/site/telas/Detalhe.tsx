@@ -6,7 +6,7 @@ import { carregarDetalhe } from '../dados';
 import { dataCurta, decimal, duracao, horaLocal, inteiro, km, kmh, relogio, ritmo100, usaRitmo, velocidadeOuRitmo } from '../formatos';
 import { corEsporte } from '../graficos/base';
 import { Linhas } from '../graficos/Linhas';
-import { Mapa } from '../graficos/Mapa';
+import { Mapa } from '../graficos/MapaSobDemanda';
 
 const ROTULO_CAMPO: Record<string, string> = {
   nome: 'nome',

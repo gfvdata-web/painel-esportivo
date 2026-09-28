@@ -2,7 +2,7 @@ import { useMemo, useState } from 'preact/hooks';
 import { ORDEM_ESPORTES } from '../../shared/esportes';
 import { ChipEsporte, FiltrosGlobais, Intro, usePainel } from '../componentes';
 import { dataCurta, inteiro } from '../formatos';
-import { Mapa, type TrilhaMapa } from '../graficos/Mapa';
+import { Mapa, type TrilhaMapa } from '../graficos/MapaSobDemanda';
 
 const nomeLugar = (l: { cidade: string; uf?: string; pais: string }) => (l.uf ? `${l.cidade} – ${l.uf}` : `${l.cidade}, ${l.pais}`);
 
