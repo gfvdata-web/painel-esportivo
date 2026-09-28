@@ -1,0 +1,11 @@
+{
+  "$comentario": "Copie para config.local.json (na raiz do projeto) e ajuste. Esse arquivo nunca vai para o git.",
+  "zonasPrivadas": [
+    { "nome": "casa", "lat": 0, "lon": 0, "raioM": 500 }
+  ],
+  "deduplicacao": {
+    "toleranciaInicioS": 120,
+    "sobreposicaoMinima": 0.6
+  },
+  "equipamentos": []
+}

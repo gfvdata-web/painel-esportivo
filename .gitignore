@@ -1,0 +1,16 @@
+# ── Dados pessoais: NUNCA versionar ──
+data/raw/
+data/processed/
+data/cache/
+config.local.json
+.env
+.env.*
+!.env.example
+
+# ── Build e dependências ──
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db

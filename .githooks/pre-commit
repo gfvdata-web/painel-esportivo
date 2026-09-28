@@ -1,0 +1,9 @@
+#!/bin/sh
+# Trava de privacidade: recusa commits que incluam dados pessoais ou segredos.
+bloqueados=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '^(data/(raw|processed|cache)/|\.env$|\.env\.|config\.local\.json$)' | grep -v '^\.env\.example$')
+if [ -n "$bloqueados" ]; then
+  echo "✖ Commit bloqueado: arquivos com dados pessoais/segredos no stage:" >&2
+  echo "$bloqueados" | sed 's/^/   /' >&2
+  echo "  Remova com: git restore --staged <arquivo>" >&2
+  exit 1
+fi
